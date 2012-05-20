@@ -142,13 +142,9 @@ jQuery(document).ready(function($){
 	//Google Maps
 	if(typeof google.maps.LatLng !== 'undefined'){
 		$('.map_canvas').each(function(){
-			
 			var $canvas = $(this);
-			var dataZoom = $canvas.attr('data-zoom') ? parseInt($canvas.attr('data-zoom')) : 8;
-			
-			var latlng = $canvas.attr('data-lat') ? 
-							new google.maps.LatLng($canvas.attr('data-lat'), $canvas.attr('data-lng')) :
-							new google.maps.LatLng(40.7143528, -74.0059731);
+			var dataZoom =  parseInt($canvas.attr('data-zoom'));
+			var latlng = new google.maps.LatLng($canvas.attr('data-lat'), $canvas.attr('data-lng'));
 					
 			var myOptions = {
 				zoom: dataZoom,
@@ -158,26 +154,30 @@ jQuery(document).ready(function($){
 					
 			var map = new google.maps.Map(this, myOptions);
 
-			var bounds = new google.maps.LatLngBounds();
-
-			$('.map_data').children('div').each( function() {  
+			$('.post[data-address]').each( function() {
 				var $item = $(this);
+				var address = $item.attr('data-address');
+				var title = $item.attr('data-title');
 				var geocoder = new google.maps.Geocoder();
-				geocoder.geocode({ 
-						'address' : $item.attr('data-address') 
-					},
+				geocoder.geocode({ 'address' : address },
 					function(results, status) {					
 						if (status == google.maps.GeocoderStatus.OK) {
 							var marker = new google.maps.Marker({
 								position: results[0].geometry.location,
 								map: map,
-								title: $item.attr('data-title')
+								title: title
 							});
-							bounds.extend(results[0].geometry.location);
+							google.maps.event.addListener(marker, 'click', function() {
+								var infowindow = new google.maps.InfoWindow({
+ 									content: '<div><strong><h2>{{title}}</h2></strong><p>{{address}}</p></div>'
+ 										.replace(/{{title}}/ig, title)
+ 										.replace(/{{address}}/ig, address)
+								});
+  								infowindow.open(map, marker);
+							});
 						}
 				});
 			});
-			map.fitBounds(bounds);
 		});
 	}
 });

@@ -1,0 +1,35 @@
+{
+	"completed_in":0.028,
+	"max_id":204211636070916096,
+	"max_id_str":"204211636070916096",
+	"next_page":"?page=2&max_id=204211636070916096&q=dogs",
+	"page":1,
+	"query":"dogs",
+	"refresh_url":"?since_id=204211636070916096&q=dogs",
+	"results":[
+	{
+		"created_at":"Sun, 20 May 2012 14:07:02 +0000",
+		"from_user":"Joeynoble",
+		"from_user_id":20303892,
+		"from_user_id_str":"20303892",
+		"from_user_name":"Joanna Noble",
+		"geo":null,
+		"id":204211636070916096,
+		"id_str":"204211636070916096",
+		"iso_language_code":"en",
+		"metadata":{"result_type":"recent"},
+		"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/2209256157\/2011-07-16_19.53.32_normal.jpg",
+		"profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/2209256157\/2011-07-16_19.53.32_normal.jpg",
+		"source":"&lt;a href=&quot;http:\/\/twitter.com\/download\/android&quot; rel=&quot;nofollow&quot;&gt;Twitter for Android&lt;\/a&gt;",
+		"text":"@Sammieb1980 @WMP_Dog Mainly German Shepherds, you should read WMP Dogs blog if your interested :) x",
+	},
+	{
+		"from_user_id":20303892,
+		"from_user_id_str":"20303892",
+		"from_user_name":"Joanna Noble",
+		"geo":null,
+		"id":204211636070916096,
+		"id_str":"204211636070916096",
+	}
+	]
+}
