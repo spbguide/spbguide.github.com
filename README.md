@@ -1,4 +1,4 @@
-spbguide
+Spb Guide
 ========
 
-spbguide
+The new St.Petersburg guide
