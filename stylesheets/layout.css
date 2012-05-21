@@ -2000,7 +2000,12 @@ table th{
 .vimeo-icon{
 	background:transparent url(../images/icons/vimeo.png) 5px 5px no-repeat;
 }
-
+.sparrow-icon{
+	background:transparent url(../images/icons/sparrow.png) 5px 5px no-repeat;
+}
+.skype-icon{
+	background:transparent url(../images/icons/skype.png) 5px 5px no-repeat;
+}
 
 
 
