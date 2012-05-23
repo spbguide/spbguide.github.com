@@ -133,6 +133,24 @@ jQuery(document).ready(function($){
 		$('.portfolio.col-2 article:nth-child(2n+1)').addClass('clear-grid');
 	}
 	
+	//Contact Form
+	$("#contactform").submit(function() {
+		event.preventDefault(); 
+
+  		var $form = $( this ),
+        title = $form.find( 'input[name="title"]' ).val(),
+        body = $form.find( 'textarea[name="body"]' ).val(),
+        url = $form.attr( 'action' );
+        console.log({title: title, body: body });
+
+        $.post( url, {title: title, body: body },
+      		function( data ) {
+          		console.log(data);
+          		//var content = $( data ).find( '#content' );
+          		//$( "#result" ).empty().append( content );
+      		}
+    	);
+	});
 	
 	//HTML5 Fallbacks
 	if(!Modernizr.input.placeholder){
