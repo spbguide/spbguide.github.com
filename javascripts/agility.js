@@ -175,7 +175,9 @@ jQuery(document).ready(function($){
 			$('.post[data-address]').each( function() {
 				var $item = $(this);
 				var address = $item.attr('data-address');
-				var title = $item.attr('data-title');
+				var $header = $item.find('h1:first a');	
+				var title = $header.text();
+				var ref = $header.attr('name');
 				var geocoder = new google.maps.Geocoder();
 				geocoder.geocode({ 'address' : address },
 					function(results, status) {					
@@ -187,9 +189,10 @@ jQuery(document).ready(function($){
 							});
 							google.maps.event.addListener(marker, 'click', function() {
 								var infowindow = new google.maps.InfoWindow({
- 									content: '<div><strong><h2>{{title}}</h2></strong><p>{{address}}</p></div>'
+ 									content: '<div><strong><h3><a href="#{{ref}}">{{title}}</a></h3></strong><p>{{address}}</p></div>'
  										.replace(/{{title}}/ig, title)
  										.replace(/{{address}}/ig, address)
+ 										.replace(/{{ref}}/ig, ref)
 								});
   								infowindow.open(map, marker);
 							});
